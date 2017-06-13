@@ -15,6 +15,10 @@ policy engine implements the expected policy query API. In the steps below, we
 use the [Open Policy Agent (OPA)](http://openpolicyagent.org) as our external
 policy engine.
 
+## Local Demo Setup
+
+[Local cluster Setup](LOCALSETUP.md)
+
 ## Prequisites
 
 1. Host cluster running FCP. See Kubernetes docs for initial installation. The
