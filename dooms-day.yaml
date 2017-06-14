@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: dooms-day
+    customer: globex
+  name: dooms-day
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: dooms-day
+  template:
+    metadata:
+      labels:
+        app: dooms-day
+    spec:
+      containers:
+      - image: nginx
+        name: nginx

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: cat-pics
+    customer: globex
+    criticality: low
+  name: cat-pics
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: cat-pics
+  template:
+    metadata:
+      labels:
+        app: cat-pics
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
