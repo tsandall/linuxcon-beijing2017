@@ -27,17 +27,17 @@ run "view customers.rego"
 # Deploy low criticality workload.
 run "kubectl create -f cat-pics.yaml"
 
-# Inspect annotations applied by policy.
-run "kubectl get rs cat-pics -o json | jq .metadata"
-
-# TODO inspect individual clusters to see correct placement
+# Inspect annotations applied by policy. Inspect deployments.
+run "watch -n 1 kubectl get rs cat-pics -o yaml"
+run "kubectl --context=us-public-cloud get rs"
+run "kubectl --context=europe-public-cloud get rs"
+run "kubectl --context=europe-on-prem get rs"
 
 run "view example.rego"
 
 # Deploy normal workload (which implies on-premise requirement.)
 run "kubectl create -f dooms-day.yaml"
 
-# TODO inspect individual clusters to see correct placement
-
-#  Inspect annotations applied by policy.
-run "kubectl get rs dooms-day -o json | jq .metadata"
+# Inspect annotations applied by policy. Inspect deployments.
+run "watch -n 1 kubectl get rs dooms-day -o yaml"
+run "kubectl --context=europe-on-prem get rs"
