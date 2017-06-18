@@ -22,7 +22,7 @@ run "kubectl get clusters"
 # case we label clusters to indicate whether they are "on-premise".
 run "kubectl get clusters europe-on-prem -o json | jq .metadata"
 
-run "view customers.rego"
+run "cat customers.rego"
 
 # Deploy low criticality workload.
 run "kubectl create -f cat-pics.yaml"
