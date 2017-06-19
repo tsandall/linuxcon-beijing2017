@@ -5,10 +5,10 @@ source util.sh
 # Init
 set -ex
 kubectl config use-context federation
-kubectl label --overwrite cluster europe-on-prem on-prem=true
 kubectl -n kube-federation-scheduling-policy create configmap empty --from-file=empty.rego || true
 kubectl -n kube-federation-scheduling-policy create configmap example --from-file=example.rego
 kubectl -n kube-federation-scheduling-policy create configmap customers --from-file=customers.rego
+kubectl label --overwrite cluster europe-on-prem on-prem=true
 set +ex
 
 read -s
